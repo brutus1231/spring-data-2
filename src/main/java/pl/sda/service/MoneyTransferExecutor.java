@@ -19,7 +19,7 @@ public class MoneyTransferExecutor {
         AccountEntity senderAccount = accountRepository.findFirstByAccountNumber(senderAccountNumber);
         AccountEntity receiverAccount = accountRepository.findFirstByAccountNumber(receiverAccountNumber);
 
-        if (senderAccount.getState().compareTo(value) < 0) {
+        if (senderAccount.getState().compareTo(value) >= 0) {
             senderAccount.addMoney(value);
             receiverAccount.subtractMoney(value);
         }
