@@ -27,7 +27,11 @@ public class Main {
         //personRepository.findByFirstName("Piotrek").forEach(System.out::println);
 
         MoneyTransferExecutor moneyTransferExecutor = context.getBean(MoneyTransferExecutor.class);
-        moneyTransferExecutor.send("1000", "2000", BigDecimal.TEN);
+
+        try{
+            moneyTransferExecutor.send("1000", "2000", BigDecimal.TEN);
+        } catch (Exception ex){}
+
 
         AccountRepository accountRepository = context.getBean(AccountRepository.class);
         accountRepository.findAll().forEach(System.out::println);
