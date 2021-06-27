@@ -1,15 +1,12 @@
 package pl.sda.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "PERSON")
-@Data
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
