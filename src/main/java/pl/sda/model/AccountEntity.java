@@ -29,4 +29,12 @@ public class AccountEntity {
 
     @OneToOne(mappedBy = "account")
     private PersonEntity person;
+
+    public void addMoney(BigDecimal money) {
+        state = state.add(money);
+    }
+
+    public void subtractMoney(BigDecimal money) {
+        state = state.subtract(money);
+    }
 }
