@@ -26,6 +26,7 @@ public class Main {
     }
 
     private static void savePersons(PersonRepository personRepository) {
+        personRepository.deleteAll();
         AccountEntity account1 = AccountEntity.builder().accountNumber("1000").state(BigDecimal.valueOf(2000)).build();
         AccountEntity account2 = AccountEntity.builder().accountNumber("2000").state(BigDecimal.valueOf(3000)).build();
 
