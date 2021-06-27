@@ -1,18 +1,19 @@
 package pl.sda.model;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PERSON")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PersonEntity {
 
     @Id
+    @GeneratedValue
     @Column
     private Long id;
 
