@@ -18,6 +18,14 @@ public class Main {
 
         PersonRepository personRepository = context.getBean(PersonRepository.class);
 
+        savePersons(personRepository);
+
+//        personRepository.findAll().forEach(System.out::println);
+
+        personRepository.findByFirstName("Piotrek").forEach(System.out::println);
+    }
+
+    private static void savePersons(PersonRepository personRepository) {
         AccountEntity account1 = AccountEntity.builder().accountNumber("1000").state(BigDecimal.valueOf(2000)).build();
         AccountEntity account2 = AccountEntity.builder().accountNumber("2000").state(BigDecimal.valueOf(3000)).build();
 
@@ -28,9 +36,5 @@ public class Main {
 
         personRepository.save(personEntity1);
         personRepository.save(personEntity2);
-
-//        personRepository.findAll().forEach(System.out::println);
-
-        personRepository.findByFirstName("Piotrek").forEach(System.out::println);
     }
 }
