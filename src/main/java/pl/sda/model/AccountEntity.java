@@ -37,4 +37,13 @@ public class AccountEntity {
     public void subtractMoney(BigDecimal money) {
         state = state.subtract(money);
     }
+
+    @Override
+    public String toString() {
+        return "AccountEntity{" +
+                "id=" + id +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", state=" + state +
+                '}';
+    }
 }

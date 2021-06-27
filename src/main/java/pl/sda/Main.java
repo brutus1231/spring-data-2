@@ -5,7 +5,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import pl.sda.config.ApplicationConfiguration;
 import pl.sda.model.AccountEntity;
 import pl.sda.model.PersonEntity;
+import pl.sda.repository.AccountRepository;
 import pl.sda.repository.PersonRepository;
+import pl.sda.service.MoneyTransferExecutor;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -22,7 +24,13 @@ public class Main {
 
 //        personRepository.findAll().forEach(System.out::println);
 
-        personRepository.findByFirstName("Piotrek").forEach(System.out::println);
+        //personRepository.findByFirstName("Piotrek").forEach(System.out::println);
+
+        MoneyTransferExecutor moneyTransferExecutor = context.getBean(MoneyTransferExecutor.class);
+        moneyTransferExecutor.send("1000", "2000", BigDecimal.TEN);
+
+        AccountRepository accountRepository = context.getBean(AccountRepository.class);
+        accountRepository.findAll().forEach(System.out::println);
     }
 
     private static void savePersons(PersonRepository personRepository) {
