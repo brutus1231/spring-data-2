@@ -18,6 +18,8 @@ public class Main {
 //        PersonEntity personEntity = PersonEntity.builder().firstName("Marcin").lastName("Nowak").build();
 //        personRepository.save(personEntity);
 
-        personRepository.findAll().forEach(System.out::println);
+//        personRepository.findAll().forEach(System.out::println);
+
+        personRepository.findByFirstName("Piotrek").forEach(System.out::println);
     }
 }
